@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {color:blue}
+
+        #para1 {color:green;
+                text-decoration: underline}
+
+        .btn {color:red}
+    </style>
+
+</head>
+<body>
+    <h1>Heading 1</h1>
+    <p id="para1">This is para 1</p>
+    <button class="btn" onclick="handleClick()">Click me</button>
+    <button onclick="disableButtons()">Disable all buttons </button>
+
+    <script>
+        const handleClick = () => {
+            console.log("hey i am clicked")
+            const para1 = document.getElementById('para1');
+            para1.innerText ="this is para 1 updated";
+            para1.style.color = 'yellow';
+
+        }
+
+        const disableButtons =() => {
+            document.querySelectorAll("button")
+              .forEach((button)=>button.disabled=true);
+        }
+
+    </script>
+
+</body>
+</html>
