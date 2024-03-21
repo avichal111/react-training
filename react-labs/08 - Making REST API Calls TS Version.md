@@ -232,8 +232,8 @@ export const getAllPaymentsAxiosVersion = () : Promise<AxiosResponse<PaymentType
 
 const loadData = () => {
         getAllPayments()
-           .then(data => {
-                    setPayments(data);
+           .then(response => {
+                    setPayments(response.data);
                     setLoading(false);    
                 })
           );
