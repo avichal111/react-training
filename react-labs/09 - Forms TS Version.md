@@ -150,4 +150,13 @@ const Search = () : JSX.Element => {
         </div>
     );
 }
+
+```
+
+**Search.css**
+
+```
+.searchBoxError {
+    border-color: red;
+}
 ```
