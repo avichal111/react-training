@@ -20,7 +20,7 @@ module.exports = {
             name : 'helloworld',
             filename : 'remoteEntry.js',
             exposes :
-                {'./HelloWorld' : './src/index'}
+                {'./HelloWorld' : './src/HelloWorld/indexHelloWorld.tsx'}
         })
     ],
     module: {
