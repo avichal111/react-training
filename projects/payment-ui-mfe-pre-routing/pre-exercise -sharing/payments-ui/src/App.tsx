@@ -26,6 +26,7 @@ const [user,setUser] = useState<userType>( {id: 0, name : "", role : ""});
     <BrowserRouter>
       <PageHeader />
       <Routes>
+        <Route path="/find/:id" element={<PaymentsList />} />
         <Route path="/find" element={<PaymentsList />} />
         <Route path="/add" element={<PaymentsAdd />} />
         <Route path="/" element={<HomePage />} />

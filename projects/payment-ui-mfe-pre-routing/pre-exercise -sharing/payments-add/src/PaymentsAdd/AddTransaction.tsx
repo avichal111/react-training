@@ -13,7 +13,7 @@ type PaymentType =
         taxRate: number,
         type: string}
 
-export type AddTransactionProps = { serverUrl : string}
+export type AddTransactionProps = { serverUrl : string, onNavigate: (url: string) => void}
 
 const AddTransaction = (props : AddTransactionProps): JSX.Element => {
 
@@ -57,6 +57,7 @@ const addNewTransaction = (payment: PaymentType) : Promise<AxiosResponse<Payment
       .then((result) => {
         console.log('added transaction status', result.status);
         setMessage('Saved');
+        props.onNavigate(`/find/${result.data.id}`)
       })
       .catch((error) => console.log("something went wrong ", error));
   };

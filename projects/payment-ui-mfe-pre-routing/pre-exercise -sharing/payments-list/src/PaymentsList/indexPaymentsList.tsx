@@ -8,24 +8,17 @@ export type PaymentsListProps = {
   serverUrl : string,
   initialPath: string[],
 }
-
-
-
 const mount = (el: Element, props: PaymentsListProps) : void => {
 
   const routes = [
+       {path: "/find/:orderId", element:  <FindTransactionPage {...props} />},
        {path: "*", element:  <FindTransactionPage {...props} />},
   ];
-
   const router = createMemoryRouter(routes, {initialEntries: props.initialPath, initialIndex: 0});
-
-
   const root  = createRoot(el);
-
 
   root.render(
     <RouterProvider router={router} />);
-
 }
 
 export { mount };

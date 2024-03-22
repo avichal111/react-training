@@ -5,11 +5,8 @@ import {useState} from "react";
 import { PaymentsListProps } from "./indexPaymentsList";
 
 const FindTransactionPage = (props: PaymentsListProps) => {
-
     
     const [searchTerm, setSearchTerm] = useState<string>("");
-
-    
     
     return (
         <div>

@@ -5,10 +5,14 @@ import { useNavigate } from 'react-router-dom';
 const PaymentsAdd = () : JSX.Element => {
 
   const paymentsadddiv = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
+  const onNavigate = (url: string): void => {
+      navigate(url)
+  }
   
   useEffect( () => {
-    mount(paymentsadddiv.current, {serverUrl : "https://payments.multicode.uk"});
+    mount(paymentsadddiv.current, {serverUrl : "https://payments.multicode.uk", onNavigate: onNavigate});
   } , []);
 
   return (
