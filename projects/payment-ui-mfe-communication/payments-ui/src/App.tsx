@@ -23,7 +23,7 @@ function App() {
 
 
   return (
-    <UserContext.Provider value={{...user, login, logout}}>
+    <UserContext.Provider value={{...user, login, logout, onLoginStateChaged: (user: userType) => {},}}>
     <BrowserRouter>
       <PageHeader />
       <Routes>

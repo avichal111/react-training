@@ -1,21 +1,26 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import {mount} from 'staticpages/HomePage';
 import { UserContext, userContextType, userType } from '../context/context';
-
-export type homeprops = {user: userType, login: (user:userType) => void, logout: () => void}
-const HomePage = () : JSX.Element => {
+export type homeprops = {
+  user: userType,
+  login: (user:userType) => void, 
+   logout: () => void}
+type homeReturn = {onUserStateChange: (user:userType) => void}
+   
+   
+   const HomePage = () : JSX.Element => {
 
   const context = useContext<userContextType>(UserContext)
   const homepagediv = useRef<HTMLDivElement>(null);
 
   const login = (user: userType) => {
-    console.log("Login the user:", user)
     context.login(user)
+    context.onLoginStateChaged(user)
   }
   
   const logout = () => {
-    console.log("Logout")
     context.logout()
+    context.onLoginStateChaged({id: 0, name: '', role: ''})
   }
 
   const props:homeprops = {
@@ -25,8 +30,9 @@ const HomePage = () : JSX.Element => {
   }
 
   useEffect( () => {
-    mount(homepagediv.current, props);
-  } , []);
+    const homereturn: homeReturn = mount(homepagediv.current, props);
+    context.onLoginStateChaged = homereturn.onUserStateChange
+   } , []);
 
   return (
     <div ref={homepagediv} />
